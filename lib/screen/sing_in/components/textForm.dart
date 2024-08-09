@@ -3,10 +3,21 @@ import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-TextFormField textFormField(String label, String hint, String picture) {
+TextFormField textFormField(
+  String label,
+  String hint,
+  String picture, {
+  required TextEditingController controller,
+}) {
+  final List<String> errors = [];
+  bool isObscure = label.toLowerCase() == 'mot de pass';
+
   return TextFormField(
-    obscureText: true,
-    keyboardType: TextInputType.name,
+    controller: controller,
+    obscureText: isObscure,
+    keyboardType: label.toLowerCase() == 'email'
+        ? TextInputType.emailAddress
+        : TextInputType.text,
     decoration: InputDecoration(
       labelText: label,
       enabledBorder: OutlineInputBorder(
@@ -35,5 +46,13 @@ TextFormField textFormField(String label, String hint, String picture) {
         ),
       ),
     ),
+    validator: (value) {
+      // Check if value is null or empty
+      if (value == null || value.isEmpty) {
+        errors.add("mot de pass ou email incorrect");
+        return "mot de pass ou email incorrect"; // Returning error message
+      }
+      return null; // Return null if validation is successful
+    },
   );
 }
