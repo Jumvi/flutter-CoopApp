@@ -1,4 +1,8 @@
+import 'package:firstapp/screen/Registered/registered_body.dart';
 import 'package:firstapp/screen/sing_in/components/connexion_formulaire.dart';
+import 'package:firstapp/screen/sing_in/sing_in_screen.dart';
+import 'package:firstapp/screen/splash/components/routes.dart';
+import 'package:firstapp/screen/splash/splash_screen.dart';
 import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -68,10 +72,14 @@ class BodyConnexion extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text("vous n'avez pas de compte?"),
-                  Text('Créer un compte ',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                      )),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, RegisteredBody.routeName);
+                      },
+                      child: Text(
+                        'Créer un compte',
+                        style: TextStyle(decoration: TextDecoration.underline),
+                      ))
                 ],
               ))
             ],
