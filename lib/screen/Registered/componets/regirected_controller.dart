@@ -1,3 +1,4 @@
+import 'package:firstapp/screen/product/landing.dart';
 import 'package:firstapp/screen/sing_in/components/textForm.dart';
 import 'package:firstapp/screen/splash/components/default_button.dart';
 import 'package:firstapp/size_config.dart';
@@ -54,20 +55,7 @@ class _regirectedControllerState extends State<regirectedController> {
                     _confirmePasseword.clear();
 
                     if (motDepass == confirmPass) {
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text('connexion reussi'),
-                                content: Text(
-                                    'vos données ${email} et ${confirmPass} et ${motDepass}'),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Text("Quitter"))
-                                ],
-                              ));
+                      Navigator.pushNamed(context, LandingProduct.routeName);
                     } else {
                       showDialog(
                           context: context,
