@@ -2,6 +2,7 @@ import 'package:firstapp/screen/sing_in/components/connexion_formulaire.dart';
 import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BodyConnexion extends StatelessWidget {
   const BodyConnexion({super.key});
@@ -16,10 +17,10 @@ class BodyConnexion extends StatelessWidget {
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Column(
             children: [
-              Text('Bienvenue',
+              Text('',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
+                    fontSize: getProportionateScreenWidth(32),
                     fontWeight: FontWeight.w400,
                   ),
                   textAlign: TextAlign.center),
@@ -32,6 +33,47 @@ class BodyConnexion extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SingInFormulair(),
+              SizedBox(
+                height: getProportionateScreenHeight(120),
+              ),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/google.svg",
+                      width: getProportionateScreenWidth(20),
+                      height: getProportionateScreenHeight(20),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(15),
+                    ),
+                    SvgPicture.asset("assets/icons/whatsaap.svg",
+                        width: getProportionateScreenWidth(20),
+                        height: getProportionateScreenHeight(20)),
+                    SizedBox(
+                      width: getProportionateScreenWidth(15),
+                    ),
+                    SvgPicture.asset("assets/icons/facebook.svg",
+                        width: getProportionateScreenWidth(20),
+                        height: getProportionateScreenHeight(20)),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: getProportionateScreenHeight(20),
+              ),
+              Center(
+                  child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("vous n'avez pas de compte?"),
+                  Text('Créer un compte ',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      )),
+                ],
+              ))
             ],
           ),
         ),

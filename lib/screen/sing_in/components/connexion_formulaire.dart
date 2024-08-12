@@ -15,6 +15,14 @@ class _SingInFormulairState extends State<SingInFormulair> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool boxState = true;
+
+  void onChackboxChangeState(bool? value) {
+    setState(() {
+      boxState = value ?? false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -45,6 +53,23 @@ class _SingInFormulairState extends State<SingInFormulair> {
                 SvgPicture.asset("assets/icons/Error.svg"),
                 Text('Erreur lors de la connexion'),
               ],
+            ),
+            Row(
+              children: [
+                Checkbox(value: boxState, onChanged: onChackboxChangeState),
+                Text('Remember me'),
+                SizedBox(
+                  width: getProportionateScreenWidth(100),
+                ),
+                Text(
+                  'Forgot password',
+                  style: TextStyle(
+                      decoration: TextDecoration.underline, color: Colors.blue),
+                )
+              ],
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
             ),
             DefaultButton(
                 press: () {

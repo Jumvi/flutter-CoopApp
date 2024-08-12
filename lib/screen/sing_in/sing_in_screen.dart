@@ -1,4 +1,5 @@
 import 'package:firstapp/screen/sing_in/components/body_connexion.dart';
+import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 
 class SingInScreen extends StatelessWidget {
@@ -10,13 +11,14 @@ class SingInScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Connexion',
+          'Se connecter',
           style: TextStyle(
-            color: Colors.red,
+            color: Colors.black,
+            fontSize: getProportionateScreenWidth(35),
           ),
         ),
-        centerTitle: true,
       ),
+      backgroundColor: const Color.fromARGB(255, 247, 242, 242),
       body: BodyConnexion(),
     );
   }
