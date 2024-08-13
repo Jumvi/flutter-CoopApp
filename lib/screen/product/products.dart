@@ -1,3 +1,5 @@
+import 'package:firstapp/screen/product/category_title.dart';
+import 'package:firstapp/screen/product/product_list_pub.dart';
 import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +17,7 @@ class ProductsCards extends StatelessWidget {
           ),
           Container(
             width: 300,
-            height: getProportionateScreenHeight(100),
+            height: getProportionateScreenHeight(150),
             child: Card(
               color: const Color.fromARGB(255, 42, 163, 174),
               elevation: 5,
@@ -54,43 +56,14 @@ class ProductsCards extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(getProportionateScreenHeight(10)),
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/electronic.svg"),
-                    Text('Electronics')
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/electronic.svg"),
-                    Text('Electronics')
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/electronic.svg"),
-                    Text('Electronics')
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/electronic.svg"),
-                    Text('Electronics')
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/electronic.svg"),
-                    Text('Electronics')
-                  ],
-                )
-              ],
-            ),
-          )
+          SizedBox(
+            height: getProportionateScreenHeight(40),
+          ),
+          CategoryTitle(),
+          SizedBox(
+            height: getProportionateScreenHeight(35),
+          ),
+          ProductListPub()
         ],
       ),
     );
