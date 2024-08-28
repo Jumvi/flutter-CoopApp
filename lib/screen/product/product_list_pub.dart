@@ -15,118 +15,127 @@ class ProductListPub extends StatelessWidget {
           ),
           Text(
             'Spécialement pour toi',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(color: Colors.black, fontSize: 16),
           ),
           SizedBox(
             height: getProportionateScreenHeight(10),
           ),
           SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Card(
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(15.0),
-                        child: Image.asset(
-                          "assets/images/accessoires1.jpg",
-                          height: getProportionateScreenHeight(150),
-                          width: getProportionateScreenWidth(200),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Positioned(
-                          bottom: 10.0,
-                          left: 10.0,
-                          child: Text(
-                            'Accessoires',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                shadows: [
-                                  Shadow(
-                                      blurRadius: 10.0,
-                                      color: Colors.black.withOpacity(0.5),
-                                      offset: Offset(2.0, 2.0))
-                                ]),
-                          ))
-                    ],
-                  ),
+              scrollDirection: Axis.horizontal,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: getProportionateScreenHeight(150),
+                  minHeight: getProportionateScreenHeight(150),
                 ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/appareilphoto.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(200),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                child: Row(
+                  children: [
+                    Hovercard(
+                        path: "assets/images/accessoires1.jpg",
+                        title: "Accessoires"),
+                    Hovercard(
+                        path: "assets/images/appareilphoto.jpg",
+                        title: "Electronics"),
+                    Hovercard(
+                        path: "assets/images/blouson1.jpg", title: "Vetements"),
+                    Hovercard(
+                        path: "assets/images/chemise1.jpg", title: "Vetements"),
+                    Hovercard(
+                        path: "assets/images/Electronic1.jpg",
+                        title: "Electronic"),
+                    Hovercard(
+                        path: "assets/images/robe1.jpg", title: "Vetement"),
+                    Hovercard(path: "assets/images/sport1.jpg", title: "Sport"),
+                  ],
                 ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/blouson1.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(200),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/chemise1.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(200),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/Electronic1.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(200),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/robe1.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(200),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      "assets/images/sport1.jpg",
-                      height: getProportionateScreenHeight(150),
-                      width: getProportionateScreenWidth(250),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
+              ))
         ],
       ),
     );
   }
+}
+
+class Hovercard extends StatefulWidget {
+  final String path;
+  final String title;
+
+  const Hovercard({super.key, required this.path, required this.title});
+
+  @override
+  State<Hovercard> createState() => _HovercardState();
+}
+
+class _HovercardState extends State<Hovercard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // MaterialPageRoute(builder: (context)=>())
+      },
+      child: MouseRegion(
+        onEnter: (event) => _onHover(true),
+        onExit: (event) => _onHover(false),
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          margin:
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(8)),
+          width: _isHovered
+              ? getProportionateScreenWidth(220)
+              : getProportionateScreenWidth(200),
+          height: _isHovered
+              ? getProportionateScreenHeight(150)
+              : getProportionateScreenHeight(120),
+          child: buildCard(widget.path, widget.title),
+        ),
+      ),
+    );
+  }
+
+  void _onHover(bool isHovered) {
+    setState(() {
+      _isHovered = isHovered;
+    });
+  }
+}
+
+Widget buildCard(String path, String title) {
+  return Card(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15.0),
+    ),
+    child: Stack(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Image.asset(
+            path,
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Positioned(
+          top: getProportionateScreenHeight(40),
+          left: getProportionateScreenWidth(20),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: getProportionateScreenHeight(20),
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  blurRadius: 10.0,
+                  color: Colors.black.withOpacity(0.5),
+                  offset: Offset(2.0, 2.0),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }

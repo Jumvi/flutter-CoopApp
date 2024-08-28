@@ -21,11 +21,15 @@ class CategoryTitle extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      color: const Color.fromARGB(255, 239, 218, 185),
-                      width: getProportionateScreenWidth(30),
-                      height: getProportionateScreenHeight(30),
-                      child: SvgPicture.asset("assets/icons/electronic.svg"),
-                    ),
+                        child: IconButton(
+                      focusColor: Colors.blue,
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        "assets/icons/electronic.svg",
+                        height: getProportionateScreenHeight(30),
+                        width: getProportionateScreenWidth(30),
+                      ),
+                    )),
                     Text(
                       'Electronics',
                       style: TextStyle(
@@ -35,15 +39,19 @@ class CategoryTitle extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: getProportionateScreenWidth(10),
                 ),
                 Column(
                   children: [
                     Container(
-                      color: const Color.fromARGB(255, 239, 218, 185),
-                      width: getProportionateScreenWidth(30),
-                      height: getProportionateScreenHeight(30),
-                      child: SvgPicture.asset("assets/icons/decoration.svg"),
+                      child: IconButton(
+                          focusColor: Colors.blue,
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            "assets/icons/decoration.svg",
+                            height: getProportionateScreenHeight(30),
+                            width: getProportionateScreenWidth(30),
+                          )),
                     ),
                     Text(
                       'Decoration',
@@ -54,20 +62,20 @@ class CategoryTitle extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: getProportionateScreenWidth(10),
                 ),
                 Column(
                   children: [
                     Container(
-                      color: const Color.fromARGB(255, 239, 218, 185),
-                      width: getProportionateScreenWidth(30),
-                      height: getProportionateScreenHeight(30),
-                      child: SvgPicture.asset(
+                        child: IconButton(
+                      focusColor: Colors.blue,
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
                         "assets/icons/sport.svg",
                         width: getProportionateScreenWidth(30),
                         height: getProportionateScreenHeight(30),
                       ),
-                    ),
+                    )),
                     Text(
                       'sport',
                       style: TextStyle(
@@ -77,19 +85,19 @@ class CategoryTitle extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: getProportionateScreenWidth(10),
                 ),
                 Column(
                   children: [
                     Container(
-                      color: const Color.fromARGB(255, 239, 218, 185),
-                      width: getProportionateScreenWidth(30),
-                      height: getProportionateScreenHeight(30),
-                      child: SvgPicture.asset(
-                        "assets/icons/beaute.svg",
-                        height: getProportionateScreenHeight(30),
-                        width: getProportionateScreenWidth(30),
-                      ),
+                      child: IconButton(
+                          focusColor: Colors.blue,
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            "assets/icons/beaute.svg",
+                            height: getProportionateScreenHeight(30),
+                            width: getProportionateScreenWidth(30),
+                          )),
                     ),
                     Text(
                       'Beauté',
@@ -100,7 +108,7 @@ class CategoryTitle extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: getProportionateScreenWidth(10),
                 ),
                 Column(
                   children: [
@@ -108,14 +116,14 @@ class CategoryTitle extends StatelessWidget {
                       width: getProportionateScreenWidth(10),
                     ),
                     Container(
-                      color: const Color.fromARGB(255, 239, 218, 185),
-                      width: getProportionateScreenWidth(30),
-                      height: getProportionateScreenHeight(30),
-                      child: SvgPicture.asset(
-                        "assets/icons/vetement.svg",
-                        width: getProportionateScreenWidth(40),
-                        height: getProportionateScreenHeight(40),
-                      ),
+                      child: IconButton(
+                          focusColor: Colors.blue,
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            "assets/icons/vetement.svg",
+                            width: getProportionateScreenWidth(20),
+                            height: getProportionateScreenHeight(20),
+                          )),
                     ),
                     Text(
                       'vetements',
