@@ -33,7 +33,7 @@ class _PopularCardState extends State<PopularCard> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         padding: const EdgeInsets.all(20),
-        height: getProportionateScreenHeight(_isHovered ? 220 : 200),
+        height: getProportionateScreenHeight(_isHovered ? 190 : 200),
         width: getProportionateScreenWidth(_isHovered ? 220 : 200),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class _PopularCardState extends State<PopularCard> {
               child: Card(
                 child: Image.asset(
                   widget.path,
-                  height: getProportionateScreenHeight(_isHovered ? 150 : 130),
+                  height: getProportionateScreenHeight(_isHovered ? 130 : 120),
                   width: getProportionateScreenWidth(_isHovered ? 220 : 200),
                   fit: BoxFit.cover,
                 ),

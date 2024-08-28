@@ -1,3 +1,4 @@
+import 'package:firstapp/screen/product/bottom_navigation.dart';
 import 'package:firstapp/screen/product/category_title.dart';
 import 'package:firstapp/screen/product/popular_product.dart';
 import 'package:firstapp/screen/product/product_list_pub.dart';
@@ -83,7 +84,7 @@ class ProductsCards extends StatelessWidget {
                     ],
                   )),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:firstapp/screen/product/bottom_navigation.dart';
 import 'package:firstapp/screen/product/landing.dart';
 import 'package:firstapp/screen/sing_in/components/textForm.dart';
 import 'package:firstapp/screen/splash/components/default_button.dart';
@@ -55,7 +56,7 @@ class _regirectedControllerState extends State<regirectedController> {
                     _confirmePasseword.clear();
 
                     if (motDepass == confirmPass) {
-                      Navigator.pushNamed(context, LandingProduct.routeName);
+                      Navigator.pushNamed(context, BottomWidget.routeName);
                     } else {
                       showDialog(
                           context: context,
