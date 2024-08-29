@@ -65,7 +65,7 @@ class ProductsCards extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            PopularCard(path: "assets/images/blouson1.jpg"),
+                            PopularCard(path: "assets/images/chemise1.jpg"),
                             SizedBox(
                               width: getProportionateScreenWidth(10),
                             ),
@@ -73,11 +73,11 @@ class ProductsCards extends StatelessWidget {
                             SizedBox(
                               width: getProportionateScreenWidth(10),
                             ),
-                            PopularCard(path: "assets/images/blouson1.jpg"),
+                            PopularCard(path: "assets/images/robe1.jpg"),
                             SizedBox(
                               width: getProportionateScreenWidth(10),
                             ),
-                            PopularCard(path: "assets/images/blouson1.jpg"),
+                            PopularCard(path: "assets/images/sport1.jpg"),
                           ],
                         ),
                       )
