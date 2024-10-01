@@ -24,8 +24,8 @@ class ProductListPub extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: getProportionateScreenHeight(150),
-                  minHeight: getProportionateScreenHeight(150),
+                  maxHeight: getProportionateScreenHeight(90),
+                  minHeight: getProportionateScreenHeight(80),
                 ),
                 child: Row(
                   children: [
@@ -47,7 +47,7 @@ class ProductListPub extends StatelessWidget {
                     Hovercard(path: "assets/images/sport1.jpg", title: "Sport"),
                   ],
                 ),
-              ))
+              )),
         ],
       ),
     );

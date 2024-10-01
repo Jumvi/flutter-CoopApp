@@ -8,7 +8,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProductsCards extends StatelessWidget {
-  const ProductsCards({super.key});
+  ProductsCards({super.key});
+
+  final List<Map<String, dynamic>> popularData = [
+    {
+      "src": "assets/images/chemise1.jpg",
+      "prix": 25,
+      "type": "Vêtements",
+      "couleur": "Bleu",
+    },
+    {
+      "src": "assets/images/blouson1.jpg",
+      "prix": 80,
+      "type": "Vêtements",
+      "couleur": "Noir",
+    },
+    {
+      "src": "assets/images/robe1.jpg",
+      "prix": 50,
+      "type": "Vêtements",
+      "couleur": "Rouge",
+    },
+    {
+      "src": "assets/images/sport1.jpg",
+      "prix": 60,
+      "type": "Vêtements de sport",
+      "couleur": "Blanc",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,32 +85,23 @@ class ProductsCards extends StatelessWidget {
                 height: getProportionateScreenHeight(10),
               ),
               SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            PopularCard(path: "assets/images/chemise1.jpg"),
-                            SizedBox(
-                              width: getProportionateScreenWidth(10),
-                            ),
-                            PopularCard(path: "assets/images/blouson1.jpg"),
-                            SizedBox(
-                              width: getProportionateScreenWidth(10),
-                            ),
-                            PopularCard(path: "assets/images/robe1.jpg"),
-                            SizedBox(
-                              width: getProportionateScreenWidth(10),
-                            ),
-                            PopularCard(path: "assets/images/sport1.jpg"),
-                          ],
-                        ),
-                      )
-                    ],
-                  )),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: popularData.map((product) {
+                    return Card(
+                      child: PopularCard(
+                          path: product["src"]!,
+                          type: product["type"],
+                          prix: product["prix"],
+                          couleur: product["couleur"]),
+                    );
+                  }).toList(),
+                ),
+              ),
             ],
+          ),
+          SizedBox(
+            height: getProportionateScreenHeight(50),
           ),
         ],
       ),

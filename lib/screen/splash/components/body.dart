@@ -3,7 +3,6 @@ import 'package:firstapp/screen/sing_in/sing_in_screen.dart';
 import 'package:firstapp/screen/splash/components/default_button.dart';
 import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -40,10 +39,9 @@ class _BodyState extends State<Body> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(4),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      0.6, // Ajustez la hauteur en fonction de vos besoins
+                  height: MediaQuery.of(context).size.height * 0.8,
                   child: PageView.builder(
                     onPageChanged: (value) {
                       setState(() {
@@ -60,23 +58,13 @@ class _BodyState extends State<Body> {
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height *
-                    0.4, // Ajustez la hauteur en fonction de vos besoins
+                    0.1, // Ajustez la hauteur en fonction de vos besoins
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        splashData.length,
-                        (index) => buildDot(index: index),
-                      ),
-                    ),
                     Container(
-                      margin: EdgeInsets.all(16),
-                      height: 16,
-                    ),
-                    Spacer(
-                      flex: 2,
+                      margin: EdgeInsets.all(8),
+                      height: 2,
                     ),
                     SizedBox(
                         width: getProportionateScreenWidth(250),
@@ -99,16 +87,16 @@ class _BodyState extends State<Body> {
     );
   }
 
-  AnimatedContainer buildDot({required int index}) {
-    return AnimatedContainer(
-      duration: kAnimationDuration,
-      margin: EdgeInsets.only(right: 5),
-      height: 6,
-      width: currentPage == index ? 20 : 6,
-      decoration: BoxDecoration(
-        color: currentPage == index ? kPrimaryColor : Colors.grey,
-        borderRadius: BorderRadius.circular(3),
-      ),
-    );
-  }
+  // AnimatedContainer buildDot({required int index}) {
+  //   return AnimatedContainer(
+  //     duration: kAnimationDuration,
+  //     margin: EdgeInsets.only(right: 5),
+  //     height: 6,
+  //     width: currentPage == index ? 20 : 6,
+  //     decoration: BoxDecoration(
+  //       color: currentPage == index ? kPrimaryColor : Colors.grey,
+  //       borderRadius: BorderRadius.circular(3),
+  //     ),
+  //   );
+  // }
 }

@@ -5,7 +5,6 @@ import 'package:firstapp/screen/splash/components/routes.dart';
 import 'package:firstapp/screen/splash/splash_screen.dart';
 import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BodyConnexion extends StatelessWidget {
@@ -21,13 +20,9 @@ class BodyConnexion extends StatelessWidget {
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Column(
             children: [
-              Text('',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(32),
-                    fontWeight: FontWeight.w400,
-                  ),
-                  textAlign: TextAlign.center),
+              SizedBox(
+                height: getProportionateScreenHeight(60),
+              ),
               Text(
                 'connectez-vous en saissant votre mot de pass ainsi que votre e-mail',
                 style: TextStyle(

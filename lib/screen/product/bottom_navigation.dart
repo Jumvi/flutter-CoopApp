@@ -2,6 +2,7 @@ import 'package:firstapp/screen/product/command_list.dart';
 import 'package:firstapp/screen/product/landing.dart';
 import 'package:firstapp/screen/product/products.dart';
 import 'package:firstapp/screen/product/shop_list.dart';
+import 'package:firstapp/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -32,6 +33,9 @@ class _BottomWidgetState extends State<BottomWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
+      bottomSheet: SizedBox(
+        height: getProportionateScreenHeight(100),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
